@@ -13,6 +13,8 @@ public class Main {
         m1.setX(2,2,60);
         System.out.println("m1 after setters:\n"+m1);
         System.out.println("equals after setting new values:"+m1.equals(m2));
+        m1.swap(1,2);
+        System.out.println("after swapping:\n"+m1);
 
     }
 }

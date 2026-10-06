@@ -41,18 +41,39 @@ public boolean equals(Object obj){
     Matrix other=(Matrix) obj;
     return this.rows==other.rows&&this.columns==other.columns&& Arrays.equals(this.data,other.data );
 }
-public String toString(){
-    StringBuilder sb=new StringBuilder();
-    for(int r=0;r<this.rows;r++){
-        sb.append("[");
-        for(int c=0;c<this.columns;c++){
-            sb.append(getX(r, c));
-            if(c<columns-1){
-                sb.append("\t");
-            }
-        }
-        sb.append("]\n");
+public void swap(int row1,int row2){
+    for(int c=0;c<this.columns;c++){
+        int temp=getX(row1, c);
+        setX(row1, c, getX(row2, c));
+        setX(row2, c, temp);
     }
-    return sb.toString();
 }
+// public String toString(){
+//     StringBuilder sb=new StringBuilder();
+//     for(int r=0;r<this.rows;r++){
+//         sb.append("[");
+//         for(int c=0;c<this.columns;c++){
+//             sb.append(getX(r, c));
+//             if(c<columns-1){
+//                 sb.append("\t");
+//             }
+//         }
+//         sb.append("]\n");
+//     }
+//     return sb.toString();
+// }
+@Override
+public String toString() {
+    String result = ""; 
+    for (int r = 0; r < this.rows; r++) {
+        result += "[";
+        for (int c = 0; c < this.columns; c++) {
+            result += getX(r, c);
+            if (c < this.columns - 1) {
+                result += ",\t"; 
+            }
+        }   
+        result += "]\n"; 
+    }
+    return result; }
 }
